@@ -16,8 +16,7 @@ body {
 
 .timer {
   color: darkblue;
-  font-size: 50px;
-  font-style: italic;
+  font-size: 19px;
   font-weight: bold;
-  font-family: monospace;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

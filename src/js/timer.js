@@ -9,7 +9,7 @@ class CountdownTimer {
     this.updateClockface(0);
     setInterval(() => {
       const currentTime = Date.now();
-      let deltaTime = this.targetDate - currentTime;
+      const deltaTime = this.targetDate - currentTime;
       this.updateClockface(deltaTime);
     }, 1000);
   }
@@ -22,10 +22,21 @@ class CountdownTimer {
     const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
     const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
 
-    document.querySelector('[data-value="days"]').textContent = `${days}`;
-    document.querySelector('[data-value="hours"]').textContent = `${hours}`;
-    document.querySelector('[data-value="mins"]').textContent = `${mins}`;
-    document.querySelector('[data-value="secs"]').textContent = `${secs}`;
+    document.querySelector(
+      this.selector,
+    ).children[0].children[0].textContent = `${days}`;
+
+    document.querySelector(
+      this.selector,
+    ).children[1].children[0].textContent = `${hours}`;
+
+    document.querySelector(
+      this.selector,
+    ).children[2].children[0].textContent = `${mins}`;
+
+    document.querySelector(
+      this.selector,
+    ).children[3].children[0].textContent = `${secs}`;
   }
 
   pad(value) {
@@ -36,4 +47,19 @@ class CountdownTimer {
 const timer = new CountdownTimer({
   selector: '#timer-1',
   targetDate: new Date('dec 31, 2021'),
+});
+
+const timer2 = new CountdownTimer({
+  selector: '#timer-2',
+  targetDate: new Date('Jan 01, 2025'),
+});
+
+const timer3 = new CountdownTimer({
+  selector: '#timer-3',
+  targetDate: new Date('May 09, 2021'),
+});
+
+const timer4 = new CountdownTimer({
+  selector: '#timer-4',
+  targetDate: new Date('feb 19, 2023'),
 });
